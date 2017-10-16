@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import {ActionCable} from 'react-actioncable-provider'
 import './App.css';
-
-
-
+import QuestionConnection from './qustions_connection';
 
 class App extends Component {
   render() {
@@ -12,7 +9,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Quesk test connections</h1>
         </header>
-
+        <QuestionConnection />
       </div>
     );
   }
