@@ -2,7 +2,7 @@ import { CableMixin, ChannelMixin } from 'action-cable-react';
 import React from 'react';
 
 
-module.exports = React.createClass({
+module.exports = React.createReactClass({
   mixins: [CableMixin(React), ChannelMixin('QuestionChannel')],
 
   getInitialState() {
@@ -21,11 +21,11 @@ module.exports = React.createClass({
 
   handleNewMessage(data) {
     console.log('New question: ' + data.message);
-    this.setState((state) => { messages: state.messages.push(data) });
+    // this.setState((state) => { messages: state.messages.push(data) });
   },
 
   handleSend() {
-    this.perform('ChatChannel', 'newMessage', { timestamp: Date.now(), message: document.getElementById('message').value });
+    this.perform('QuestionChannel', 'newMessage', { timestamp: Date.now(), message: document.getElementById('message').value });
     document.getElementById('message').value = '';
   },
 
@@ -45,3 +45,6 @@ module.exports = React.createClass({
     )
   }
 });
+
+
+export default 'QuestionChannel';
