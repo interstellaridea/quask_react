@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {ActionCable} from 'react-actioncable-provider'
 import './App.css';
 
 
