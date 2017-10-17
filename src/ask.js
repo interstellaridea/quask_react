@@ -5,28 +5,36 @@ class Ask extends Component {
   constructor(props) {
     super(props);
     this.state = { input: 'Ask a question...' };
-    this.handleClick = this.handleClick.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleFocus(){
+    this.setState({ input: '' });
   }
 
   onInputChange(e){
-    console.log(e);
+    this.setState({ input: e.target.value });
   }
 
   handleClick(){
-    console.log('Handle that click!');
-    // console.log(this.state.input);
+    alert('submitting question:' + this.state.input);
   }
 
   render() {
     return(
-      <div>
+      <div className='question-field'>
         <p>Ask a Question:</p>
         <input
           type="text"
-          value={this.state.input}
-          onChange={ this.onInputChange }  />
-        <input type="button" value="Ask!" onClick={this.handleClick} />
+          value={ this.state.input }
+          onFocus={ this.handleFocus }
+          onChange={ this.onInputChange } />
+        <input
+          className="question-button"
+          type='button' value='ask'
+          onClick={this.handleClick} />
       </div>
     );
   }

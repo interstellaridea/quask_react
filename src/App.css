@@ -30,8 +30,13 @@ main {
 	font-size: 2em;
 }
 
-main input {
-	padding: 3px;
-	width: 300px;
+
+.question-field input {
+	padding: 10px;
+	font-size: .8em;
+	width: 500px;
 	height: 1.2em;
+}
+
+.question-button {
 }
