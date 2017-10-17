@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route, Link } from 'react-router-dom'
 import Ask from './ask';
+import Answer from './answer';
 // import Header from './header';
 // import Main from './main';
 
@@ -26,12 +27,8 @@ const Main = () => (
   </main> 
 )
 
-const Answer = () => (
-  <p> Answer some questions</p> 
-)
-
-
 class App extends Component {
+
   render() {
     return (
       <div className="App">
