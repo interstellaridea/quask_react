@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
 import { Switch, Route, Link } from 'react-router-dom'
-import Ask from './ask';
-import Answer from './answer';
-// import Header from './header';
-// import Main from './main';
 
+import './styles/App.css';
+import Ask from './components/ask';
+import Answer from './components/answer';
 
 const Header = () => (
   <header>

@@ -9,7 +9,7 @@ class QuestionConnection extends Component {
 	}
 
   createSocket(){
-    let cable = ActionCable.createConsumer('ws://127.0.0.1:3000/cable')
+    let cable = ActionCable.createConsumer('ws://quask-api.herokuapp.com/cable')
     this.chats = cable.subscriptions.create({
       channel: 'QuestionsChannel'
     },
