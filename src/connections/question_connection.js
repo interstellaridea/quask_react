@@ -5,7 +5,7 @@ class QuestionConnection extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { question: [{id: null, name:'We are not connected'}], answers: [] };
+		this.state = { question: {id: null, name:'We are not connected'}, answers: [] };
 	}
 
   createSocket(){
@@ -28,6 +28,7 @@ class QuestionConnection extends Component {
     })
   }
 
+
   renderAnswers() {
     const answer_list = this.state.answers.map( answer =>
       <li key={answer.id}>
@@ -44,7 +45,7 @@ class QuestionConnection extends Component {
 	render() {
 		return(
       <div>
-  			<h2>{this.state.question.name}</h2>
+  			<h2>{this.state.question.name }</h2>
         <ul>{this.renderAnswers() }</ul>
       </div>
     );
