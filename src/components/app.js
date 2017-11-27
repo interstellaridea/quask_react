@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom'
 
-import './styles/App.css';
-import Ask from './components/ask';
-import Answer from './components/answer';
+import Ask from './ask';
+import Answer from './answer';
 
 const Header = () => (
   <header>

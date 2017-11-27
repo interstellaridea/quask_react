@@ -26,15 +26,18 @@ class Ask extends Component {
     return(
       <div className='question-field'>
         <p>Ask a Question:</p>
+        <form className='form-group'>
         <input
+          className='form-control'
           type="text"
           value={ this.state.input }
           onFocus={ this.handleFocus }
           onChange={ this.onInputChange } />
         <input
-          className="question-button"
-          type='button' value='ask'
+          className="question-button form-control"
+          type='submit' value='ask'
           onClick={this.handleClick} />
+        </form>
       </div>
     );
   }
