@@ -1,35 +1,26 @@
 import React, { Component } from 'react';
-import { Switch, Route, Link } from 'react-router-dom'
-
+import { Switch, Route, Link } from 'react-router-dom';
 import Ask from './ask';
 import Answer from './answer';
+import routes from '../routes';
+import Navbar from './navbar';
 
-const Header = () => (
-  <header>
-    <nav className="nav">
-      <ul>
-        <li><Link to='/ask'>Ask</Link></li>
-        <li><Link to='/answer'>Answer</Link></li>
-      </ul>
-    </nav>
-  </header>
-)
 
 const Main = () => (
-  <main>
+  <main  className='main'>
     <Switch>
       <Route exact path='/ask' component={Ask} />
       <Route exact path='/answer' component={Answer} />
     </Switch>
-  </main> 
+  </main>
 )
 
-class App extends Component {
 
+class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
+      <div>
+        <Navbar />
         <Main />
       </div>
     );
