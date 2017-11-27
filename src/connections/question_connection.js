@@ -5,7 +5,7 @@ class QuestionConnection extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { question: 'We are not connected' };
+		this.state = { question: [{id: null, name:'We are not connected'}], answers: [] };
 	}
 
   createSocket(){
@@ -19,10 +19,22 @@ class QuestionConnection extends Component {
       },
       received: (data) => {
         console.log(data);
-        this.setState({question: data.question.name});
+        this.setState({
+          question: data.question,
+          answers: data.answers
+        });
       },
       create: (chatContent) => {}
     })
+  }
+
+  renderAnswers() {
+    const answer_list = this.state.answers.map( answer =>
+      <li key={answer.id}>
+        {answer.name}
+      </li>
+    );
+    return answer_list;
   }
 
   componentWillMount() {
@@ -31,8 +43,11 @@ class QuestionConnection extends Component {
 
 	render() {
 		return(
-			<h2>{this.state.question}</h2>
-		);
+      <div>
+  			<h2>{this.state.question.name}</h2>
+        <ul>{this.renderAnswers() }</ul>
+      </div>
+    );
 	}
 
 }
