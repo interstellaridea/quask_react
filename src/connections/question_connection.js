@@ -31,7 +31,7 @@ class QuestionConnection extends Component {
 
   renderAnswers() {
     const answer_list = this.state.answers.map( answer =>
-      <li key={answer.id}>
+      <li className='list-group-item list-group-item-action' key={answer.id}>
         {answer.name}
       </li>
     );
@@ -46,7 +46,7 @@ class QuestionConnection extends Component {
 		return(
       <div>
   			<h2>{this.state.question.name }</h2>
-        <ul>{this.renderAnswers() }</ul>
+        <ul className='list-group text-center'>{this.renderAnswers() }</ul>
       </div>
     );
 	}

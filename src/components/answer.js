@@ -8,9 +8,8 @@ class Answer extends Component {
 
 	render(){
 		return(
-			<div>
+			<div className='d-flex flex-column align-items-center'>
 				<QuestionConnection />
-				<p>answers component rendered</p>
 			</div>
 		);
 	}

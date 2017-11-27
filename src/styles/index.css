@@ -4,44 +4,6 @@ body {
   font-family: sans-serif;
 }
 
-.App {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	max-width: 100%;
-}
-
-.nav {
-	text-align: center;
-	font-size: 2em;
-	background-color: #eee;
-	
-}
-
-.nav > ul {
-	max-width: 100%;
-	list-style: none;
-	display: inline-block;
-}
-
-.nav > ul li {
-	display: inline;
-	padding: 8px;
-	text-decoration: none;
-}
-
-main {
-	text-align: center;
-	font-size: 2em;
-}
-
-
-.question-field input {
-	padding: 10px;
-	font-size: .8em;
-	width: 500px;
-	height: 1.2em;
-}
-
-.question-button {
+.main {
+	margin-top: 2.25em;
 }
