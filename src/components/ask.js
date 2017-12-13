@@ -11,7 +11,7 @@ class AskForm extends Component {
     const {  type, placeholder, meta: { touched, error } } = field;
     const classes = `form-group ${touched && error ? 'has-danger' : ''}`;
     return(
-      <div className={classes}>
+      <div>
         <input
           className='form-control'
           name={field.name}
@@ -27,25 +27,24 @@ class AskForm extends Component {
   renderAnswerForQuestions(field){
     const { fields, meta: { error }} = field;
     return(
-      <div className='list-item-group'>
-        <li className='list-item'>
-            <button className='btn btn-secondary' type='button'onClick={ () => fields.push() }>
-              add answer
-            </button>
+      <div className='form-group d-flex flex-column align-items-center'>        
+          <button className='btn btn-secondary btn-block mt-3' type='button'onClick={ () => fields.push() }>
+            add answer
+          </button>
           { fields.map((answer, index) => (
-            <div key={index}>
-              <button className='btn btn-danger' type='button' onClick={ () => fields.remove(index) }>
-                <span className="oi oi-trash" />
-              </button>
+            <div className='form-inline' key={index}>
               <Field
                 name={answer}
                 type='text'
                 component={this.renderField}
                 placeholder={`Answer ${index + 1}`}
                />
-              </div>
+              <button className='btn btn-danger' type='button' onClick={ () => fields.remove(index) }>
+                <span className="oi oi-trash" />
+              </button>               
+            </div>
           ))}
-         </li>
+        
       </div>
     );
   }
@@ -77,7 +76,7 @@ class AskForm extends Component {
 
         <FieldArray name='answers' component={this.renderAnswerForQuestions.bind(this)} />
 
-        <button type='submit'>Submit </button>
+        <button className='btn btn-info btn-block' type='submit'>Submit </button>
       </form>
     </div>
   );
