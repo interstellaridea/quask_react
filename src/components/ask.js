@@ -25,24 +25,26 @@ class AskForm extends Component {
   }
 
   renderAnswerForQuestions(field){
-    const { fields, meta: { error }} = field;
+    const { fields, maxShown, meta: { error }} = field;
     return(
       <div className='form-group d-flex flex-column align-items-center'>        
           <button className='btn btn-secondary btn-block mt-3' type='button'onClick={ () => fields.push() }>
             add answer
           </button>
-          { fields.map((answer, index) => (
-            <div className='form-inline' key={index}>
-              <Field
-                name={answer}
-                type='text'
-                component={this.renderField}
-                placeholder={`Answer ${index + 1}`}
-               />
-              <button className='btn btn-danger' type='button' onClick={ () => fields.remove(index) }>
-                <span className="oi oi-trash" />
-              </button>               
-            </div>
+          {
+            fields.map((answer, index) => (
+              index < maxShown ?
+                <div className='form-inline mt-3' key={index}>
+                  <Field
+                    name={answer}
+                    type='text'
+                    component={this.renderField}
+                    placeholder={`Answer ${index + 1}`}
+                   />
+                  <button className='btn btn-danger' type='button' onClick={ () => fields.remove(index) }>
+                    <span className="oi oi-trash" />
+                  </button>
+              </div> : null
           ))}
         
       </div>
@@ -74,7 +76,7 @@ class AskForm extends Component {
           component={this.renderField}
         />
 
-        <FieldArray name='answers' component={this.renderAnswerForQuestions.bind(this)} />
+        <FieldArray maxShown={4} name='answers' component={this.renderAnswerForQuestions.bind(this)} />
 
         <button className='btn btn-info btn-block' type='submit'>Submit </button>
       </form>
