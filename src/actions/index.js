@@ -21,6 +21,6 @@ export function createQuestion(question_hash, callback) {
 
 export function submitAnswer(answer_hash, callback) {
   const request = axios.post(SUBMIT_ANSWER_URL, answer_hash )
-        .then( () => callback() );
+        .then( () => console.log(`answer submitted`)// callback here  );
     return { type: ANSWER_SUBMITTED, payload: request.data };
 } 
