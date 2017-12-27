@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { createQuestion } from '../actions/index';
 
 
@@ -9,7 +8,6 @@ class AskForm extends Component {
 
   renderField(field) {
     const {  type, placeholder, meta: { touched, error } } = field;
-    const classes = `form-group ${touched && error ? 'has-danger' : ''}`;
     return(
       <div>
         <input
@@ -52,13 +50,10 @@ class AskForm extends Component {
   }
 
   onSubmit(values) {
-    // reduxForm stores as { question: 'name', answer: [ 'str'. 'str'] }
-    // map to make:
-    // { question: {'naem': 'str'}, answers: [ {'name': 'str'}, {'name': 'str'} ] }
-    const fixed = {};
-    fixed['question'] = {name: values['question']};
-    fixed['answers'] = values['answers'].map(item => ({name: item}))
-    this.props.createQuestion(fixed, () => {
+    
+    const question_hash = {};
+    question_hash['question'] = {name: values['question'], answers_attributes: values['answers'].map(item => ({name: item})) };
+    this.props.createQuestion(question_hash, () => {
       // redirect users to answers on success post
       this.props.history.push('/answer');
     });
